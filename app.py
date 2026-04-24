@@ -2,15 +2,14 @@ import streamlit as st
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 
-MODEL_PATH = "model"
+HF_REPO = "wtc8964/ai-text-data"
 
 @st.cache_resource
 def load_model():
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-    model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
+    tokenizer = AutoTokenizer.from_pretrained(HF_REPO)
+    model = AutoModelForSequenceClassification.from_pretrained(HF_REPO)
     model.eval()
     return tokenizer, model
-
 tokenizer, model = load_model()
 
 
